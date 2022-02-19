@@ -9,6 +9,8 @@ const exphbs = require('express-handlebars')
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
+// 設定靜態檔案讀取位置
+app.use(express.static('public'))
 // 設定路由
 app.get('/', (req, res) => {
   res.render('index')
