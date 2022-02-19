@@ -20,6 +20,13 @@ app.get('/', (req, res) => {
   res.render('index', { List: restaurantList.results })
 })
 
+// 顯示餐廳細節
+app.get('/restaurants/:restaurant_id', (req, res) => {
+  console.log(req.params)
+  const detail = restaurantList.results.find((restaurant) => restaurant.id === Number(req.params.restaurant_id))
+  res.render('show_detail', { detail: detail })
+})
+
 // 啟動與監聽路由
 app.listen(port, () => {
   console.log(`Express is running on gttp://localhost:${port}`)
