@@ -22,10 +22,20 @@ app.get('/', (req, res) => {
 
 // 顯示餐廳細節
 app.get('/restaurants/:restaurant_id', (req, res) => {
-  console.log(req.params)
   const detail = restaurantList.results.find((restaurant) => restaurant.id === Number(req.params.restaurant_id))
   res.render('show_detail', { detail: detail })
 })
+
+// 設定搜尋功能
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  const searchBox = restaurantList.results.filter((restaurant) => {
+    return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
+  })
+
+  res.render('index', { List: searchBox, keyword: keyword })
+}
+)
 
 // 啟動與監聽路由
 app.listen(port, () => {
