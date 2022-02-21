@@ -1,5 +1,5 @@
 # 餐廳清單
-![](file:///C:/Users/ASUS/demo/restaurant/public/img/restaurant.jpg)
+![image](https://github.com/21Jasper12/Restaurant-List/blob/main/public/img/restaurant.jpg)
 
 ## 介紹
 ---
