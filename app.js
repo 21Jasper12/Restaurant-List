@@ -28,12 +28,12 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
 
 // 設定搜尋功能
 app.get('/search', (req, res) => {
-  const keyword = req.query.keyword
+  const keyword = req.query.keyword.trim()
   const searchBox = restaurantList.results.filter((restaurant) => {
-    return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
+    return restaurant.name.toLowerCase().includes(keyword.toLowerCase()) || restaurant.category.toLowerCase().includes(keyword.toLowerCase())
   })
 
-  res.render('index', { List: searchBox, keyword: keyword })
+  res.render('index', { list: searchBox, keyword: keyword })
 }
 )
 
