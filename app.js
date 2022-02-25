@@ -17,7 +17,7 @@ const restaurantList = require('./restaurant.json')
 
 // 設定路由
 app.get('/', (req, res) => {
-  res.render('index', { List: restaurantList.results })
+  res.render('index', { list: restaurantList.results })
 })
 
 // 顯示餐廳細節
